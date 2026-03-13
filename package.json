@@ -19,7 +19,8 @@
     "express": "^5.1.0",
     "exxpress": "^1.0.0",
     "jsonwebtoken": "^9.0.2",
-    "mongoose": "^8.19.1",
+    "mongodb": "^6.21.0",
+    "mongoose": "^8.23.0",
     "uuidv4": "^6.2.13"
   }
 }
