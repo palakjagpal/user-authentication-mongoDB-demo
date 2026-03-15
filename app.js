@@ -12,8 +12,9 @@ dotenv.config(); // Load environment variables
 const app = express();
 
 // Middleware
-app.use(express.json()); // Parse incoming JSON
 app.use(cors()); // Enable Cross-Origin Resource Sharing
+
+app.use(express.json()); // Parse incoming JSON
 
 // Connect to MongoDB
 mongoose.connect(process.env.MONGO_URI)

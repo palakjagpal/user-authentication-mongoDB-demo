@@ -9,5 +9,5 @@ router.post("/signup", signup);
 router.post("/signin", signin); 
 router.get("/public", publicRoute);
 router.get("/protected", authMiddleware, protectedRoute); 
-
+    
 export default router;
