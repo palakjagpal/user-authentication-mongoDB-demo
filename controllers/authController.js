@@ -47,9 +47,29 @@ export const signin = async (req, res) => {
 };
 
 // PROTECTED ROUTE
+export const protectedRoute = async (req, res) => {
+    try {
+        const user = await UserModelAuth.findById(req.user.id).select("-password");
+
+        if (!user) {
+            return res.status(404).json({ msg: "User not found" });
+        }
+
+        res.json({
+            name: user.name,
+            email: user.email,
+            msg : `Hello ${req.user.email}, you accessed a protected route!`
+        });
+
+    } catch (err) {
+        res.status(500).json({ msg: err.message });
+    }
+};
+
+/*
 export const protectedRoute = (req, res) => {
     res.json({ msg: `Hello ${req.user.email}, you accessed a protected route!` });
-};
+};*/
 
 // PUBLIC ROUTE
 export const publicRoute = (req, res) => {
